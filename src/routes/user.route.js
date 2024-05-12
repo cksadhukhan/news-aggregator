@@ -8,9 +8,9 @@ const {
 
 const router = express.Router();
 
-router.get("/login", login);
+router.post("/login", login);
 
-router.get("/register", register);
+router.post("/register", register);
 
 router.get("/preferences", getPreferences);
 
