@@ -1,5 +1,7 @@
-const loggerMiddleware = require("./logger.middleware")
+const loggerMiddleware = require("./logger.middleware");
+const verifyToken = require("./auth.middleware");
 
 module.exports = {
-    loggerMiddleware
-}
+  loggerMiddleware,
+  verifyToken,
+};
