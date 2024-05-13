@@ -23,7 +23,9 @@ exports.login = async (req, res) => {
         return res.status(401).json({ error: "Incorrect password" });
       }
 
-      const token = jwt.sign({ email }, "secret", { expiresIn: 86400 });
+      const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+        expiresIn: 86400,
+      });
 
       res.json({ token, message: "Sucessfully logged in" });
     } else {
@@ -36,7 +38,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.register = async (req, res) => {
+exports.signup = async (req, res) => {
   try {
     let users = [];
     const { name, email, password, preferences } = req.body;

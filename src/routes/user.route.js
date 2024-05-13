@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   login,
-  register,
+  signup,
   getPreferences,
   updatePreferences,
 } = require("../controllers");
@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/login", login);
 
-router.post("/register", register);
+router.post("/signup", signup);
 
 router.get("/preferences", verifyToken, getPreferences);
 
