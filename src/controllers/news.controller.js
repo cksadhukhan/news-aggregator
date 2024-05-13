@@ -2,7 +2,7 @@ const axios = require("axios");
 const { getUsers } = require("../helpers");
 
 const fetchNews = async (preference) => {
-  const apiKey = "056c15e9bfa34610847ef8216200e6f6";
+  const apiKey = process.env.NEWS_API_KEY;
   const baseUrl = "https://newsapi.org/v2/top-headlines";
   const response = await axios.get(baseUrl, {
     params: {

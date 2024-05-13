@@ -3,7 +3,7 @@ const { userRoute, newsRoute } = require("./routes");
 const { loggerMiddleware } = require("./middlewares");
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000;
 
 app.use(loggerMiddleware);
 

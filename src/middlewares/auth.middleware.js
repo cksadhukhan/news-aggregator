@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
     if (!authHeader) {
       return res.status(401).json({ error: "Unauthorized" });
     }
-    jwt.verify(authHeader, "secret", (err, user) => {
+    jwt.verify(authHeader, process.env.JWT_SECRET, (err, user) => {
       if (err) {
         return res.status(403).json({ error: "Invalid token" });
       }
@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
       next();
     });
   } catch {
-    res.status(500).json({ error: "Error occured while verifying the token" });
+    res.status(500).json({ error: "Error verifying the token" });
     next();
   }
 };
