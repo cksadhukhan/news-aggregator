@@ -11,7 +11,7 @@ class UserValidator {
       };
     }
 
-    if (!email || this.emailRegex.test(email)) {
+    if (!email) {
       return {
         status: false,
         message: "Please Provide Valid Email",
@@ -34,7 +34,7 @@ class UserValidator {
   static validateLoginDetails(userData) {
     const { email, password } = userData;
 
-    if (!email || this.emailRegex.test(email)) {
+    if (!email) {
       return {
         status: false,
         message: "Please Provide Valid Email",
